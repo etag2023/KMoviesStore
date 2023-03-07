@@ -15,10 +15,18 @@
         android:theme="@style/Theme.KMoviesStore"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <activity android:name=".activities.ScanDataActivity"
+            android:theme="@style/AppTheme"
+            android:exported="true">
+
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

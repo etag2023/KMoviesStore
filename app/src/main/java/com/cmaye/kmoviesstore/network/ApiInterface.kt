@@ -20,17 +20,35 @@ interface ApiInterface {
         @Query("api_key") apiKey: String,
     ) : UpComingMovies
 
-
-
-
-
-
+    //https://api.themoviedb.org/3/movie/500?api_key=1d3080eac4ced11d76ad16ecd5a3e536
     @GET("movie/{movieId}")
-    fun getDetailMovie(
-        @Path("movieId") movieId: String,
+    suspend fun getMovieDetails(
+        @Path("movieId") movieId: Int,
         @Query("api_key") apiKey: String,
-        @Query("append_to_response") response: String
-    ): Call<MovieDetail>
+    ): MovieDetails
+
+
+
+    // Actors & Actress
+//    https://api.themoviedb.org/3/movie/500/credits?api_key=1d3080eac4ced11d76ad16ecd5a3e536&language=en-US
+    @GET("movie/{movie_id}/credits")
+    suspend fun getMoviesCredits(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") apiKey: String
+    ): Credits
+
+
+    @GET("movie/{movie_id}/similar")
+    suspend fun getSimilarMovies(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") apiKey: String
+
+    ) : SimilarMovies
+
+
+
+
+
 
 
     //    https://api.themoviedb.org/3/movie/500/lists?api_key=1d3080eac4ced11d76ad16ecd5a3e536
@@ -41,9 +59,9 @@ interface ApiInterface {
 
 
 
-    @GET("/movie/{movie_id}/images")
+    @GET("/movie/{movieId}/images")
     suspend fun getMoviesImage(
-        @Path("movieId") movieId : String,@Query("api_key") apiKey: String
+        @Path("movieId") movieId : Int,@Query("api_key") apiKey: String
     ) : GetImages
 
 }

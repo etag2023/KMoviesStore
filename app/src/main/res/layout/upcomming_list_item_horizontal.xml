@@ -10,13 +10,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp">
-        <ImageView
-            android:id="@+id/moviesImg"
-            android:layout_width="200dp"
-            android:layout_height="300dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardMovies"
+            android:layout_width="135dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="8dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            >
+            <ImageView
+                android:id="@+id/moviesImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/sample_movies"/>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/moviesTitle"
@@ -25,10 +32,10 @@
             android:text="Sample Movies"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginLeft="5dp"
-            app:layout_constraintTop_toTopOf="@+id/moviesImg"
-            app:layout_constraintStart_toEndOf="@+id/moviesImg"
+            app:layout_constraintTop_toTopOf="@+id/cardMovies"
+            app:layout_constraintStart_toEndOf="@+id/cardMovies"
             app:layout_constraintEnd_toEndOf="parent"
             />
 
@@ -37,16 +44,83 @@
             android:id="@+id/moviesDetails"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="ETAG Software Company Ltd.,"
-            android:textStyle="bold"
-            android:textSize="15sp"
+            android:text="ETAG Company Ltd.,"
+            android:textSize="14sp"
+            android:padding="2dp"
+            android:textColor="@color/black"
             android:layout_marginLeft="5dp"
+            android:ellipsize="end"
+            android:maxLines="6"
             app:layout_constraintTop_toBottomOf="@+id/moviesTitle"
-            app:layout_constraintStart_toEndOf="@+id/moviesImg"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardMovies"
+            app:layout_constraintBottom_toTopOf="@+id/layoutConstraint"
             app:layout_constraintEnd_toEndOf="parent"
             />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutConstraint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/cardMovies"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingLeft="7dp"
+            android:paddingRight="20dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/imgFavorite"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_baseline_favorite_24"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+            <TextView
+                android:id="@+id/moviesRatting"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:text=""
+                android:maxLines="2"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintTop_toTopOf="@+id/imgFavorite"
+                app:layout_constraintStart_toEndOf="@+id/imgFavorite"
+                app:layout_constraintBottom_toBottomOf="@+id/imgFavorite"
+                />
+
+            <ImageView
+                android:id="@+id/imgMessage"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/baseline_message_24"
+                app:layout_constraintStart_toEndOf="@+id/moviesRatting"
+                app:layout_constraintBottom_toBottomOf="@+id/moviesMessage"
+                app:layout_constraintTop_toTopOf="@+id/moviesMessage" />
+
+            <TextView
+                android:id="@+id/moviesMessage"
+                android:layout_width="60dp"
+                android:layout_height="0dp"
+                android:maxLines="2"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imgMessage"
+                app:layout_constraintBottom_toBottomOf="@+id/imgFavorite"
+                app:layout_constraintTop_toTopOf="@+id/imgFavorite"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

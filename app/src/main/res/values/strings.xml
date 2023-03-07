@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">KMoviesStore</string>
+
+    <string name="movies">Movies</string>
+    <string name="event">Events</string>
+    <string name="play">Plays</string>
+    <string name="sport">Sports</string>
+    <string name="activites">Activities</string>
+
+
+
+
 </resources>

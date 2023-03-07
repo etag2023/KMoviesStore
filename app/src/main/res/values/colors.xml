@@ -11,4 +11,11 @@
     <color name="colorPrimary">#FF3700B3</color>
     <color name="colorPrimaryDark">#24046C</color>
     <color name="colorAccent">#FFBB86FC</color>
+    <color name="grayColor">#E3E3E3</color>
+    <color name="dartGreen">#018E0F</color>
+    <color name="red">#D80909</color>
+    <color name="pink_red">#DC3E3E</color>
+
+
+
 </resources>
